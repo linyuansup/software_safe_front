@@ -17,6 +17,7 @@ dependencies:
   json_annotation: ^4.8.1
   oktoast: ^3.4.0
   riverpod_annotation: ^2.3.5
+  uuid: ^4.4.0
 
 dev_dependencies:
   flutter_test:

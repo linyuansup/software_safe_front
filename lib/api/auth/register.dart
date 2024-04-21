@@ -7,9 +7,16 @@ part 'register.g.dart';
 class RegisterVo implements Vo {
   String phone;
   String password;
+  String key;
+  String verify;
   String name;
 
-  RegisterVo({required this.phone, required this.password, required this.name});
+  RegisterVo(
+      {required this.phone,
+      required this.password,
+      required this.name,
+      required this.key,
+      required this.verify});
 
   @override
   factory RegisterVo.fromJson(Map<String, dynamic> json) =>
@@ -31,7 +38,10 @@ class RegisterDto implements Dto {
 
   @override
   RegisterDto(
-      {required this.token, required this.role, required this.username, required this.userId});
+      {required this.token,
+      required this.role,
+      required this.username,
+      required this.userId});
 
   @override
   factory RegisterDto.fromJson(Map<String, dynamic> json) =>

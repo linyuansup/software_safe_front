@@ -10,12 +10,16 @@ RegisterVo _$RegisterVoFromJson(Map<String, dynamic> json) => RegisterVo(
       phone: json['phone'] as String,
       password: json['password'] as String,
       name: json['name'] as String,
+      key: json['key'] as String,
+      verify: json['verify'] as String,
     );
 
 Map<String, dynamic> _$RegisterVoToJson(RegisterVo instance) =>
     <String, dynamic>{
       'phone': instance.phone,
       'password': instance.password,
+      'key': instance.key,
+      'verify': instance.verify,
       'name': instance.name,
     };
 

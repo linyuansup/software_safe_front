@@ -23,8 +23,10 @@ mixin _$UiState {
   int get role => throw _privateConstructorUsedError;
   String get sending => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
+  String get key => throw _privateConstructorUsedError;
   String get inputName => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  String get verifyKey => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UiStateCopyWith<UiState> get copyWith => throw _privateConstructorUsedError;
@@ -43,8 +45,10 @@ abstract class $UiStateCopyWith<$Res> {
       int role,
       String sending,
       String phone,
+      String key,
       String inputName,
-      String password});
+      String password,
+      String verifyKey});
 }
 
 /// @nodoc
@@ -67,8 +71,10 @@ class _$UiStateCopyWithImpl<$Res, $Val extends UiState>
     Object? role = null,
     Object? sending = null,
     Object? phone = null,
+    Object? key = null,
     Object? inputName = null,
     Object? password = null,
+    Object? verifyKey = null,
   }) {
     return _then(_value.copyWith(
       blog: freezed == blog
@@ -99,6 +105,10 @@ class _$UiStateCopyWithImpl<$Res, $Val extends UiState>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
+      key: null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
       inputName: null == inputName
           ? _value.inputName
           : inputName // ignore: cast_nullable_to_non_nullable
@@ -106,6 +116,10 @@ class _$UiStateCopyWithImpl<$Res, $Val extends UiState>
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      verifyKey: null == verifyKey
+          ? _value.verifyKey
+          : verifyKey // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -126,8 +140,10 @@ abstract class _$$UiStateImplCopyWith<$Res> implements $UiStateCopyWith<$Res> {
       int role,
       String sending,
       String phone,
+      String key,
       String inputName,
-      String password});
+      String password,
+      String verifyKey});
 }
 
 /// @nodoc
@@ -148,8 +164,10 @@ class __$$UiStateImplCopyWithImpl<$Res>
     Object? role = null,
     Object? sending = null,
     Object? phone = null,
+    Object? key = null,
     Object? inputName = null,
     Object? password = null,
+    Object? verifyKey = null,
   }) {
     return _then(_$UiStateImpl(
       blog: freezed == blog
@@ -180,6 +198,10 @@ class __$$UiStateImplCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
+      key: null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
       inputName: null == inputName
           ? _value.inputName
           : inputName // ignore: cast_nullable_to_non_nullable
@@ -187,6 +209,10 @@ class __$$UiStateImplCopyWithImpl<$Res>
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      verifyKey: null == verifyKey
+          ? _value.verifyKey
+          : verifyKey // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -203,8 +229,10 @@ class _$UiStateImpl implements _UiState {
       required this.role,
       required this.sending,
       required this.phone,
+      required this.key,
       required this.inputName,
-      required this.password})
+      required this.password,
+      required this.verifyKey})
       : _blog = blog;
 
   final List<Blog>? _blog;
@@ -230,13 +258,17 @@ class _$UiStateImpl implements _UiState {
   @override
   final String phone;
   @override
+  final String key;
+  @override
   final String inputName;
   @override
   final String password;
+  @override
+  final String verifyKey;
 
   @override
   String toString() {
-    return 'UiState(blog: $blog, isRefreshing: $isRefreshing, username: $username, userId: $userId, role: $role, sending: $sending, phone: $phone, inputName: $inputName, password: $password)';
+    return 'UiState(blog: $blog, isRefreshing: $isRefreshing, username: $username, userId: $userId, role: $role, sending: $sending, phone: $phone, key: $key, inputName: $inputName, password: $password, verifyKey: $verifyKey)';
   }
 
   @override
@@ -253,10 +285,13 @@ class _$UiStateImpl implements _UiState {
             (identical(other.role, role) || other.role == role) &&
             (identical(other.sending, sending) || other.sending == sending) &&
             (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.key, key) || other.key == key) &&
             (identical(other.inputName, inputName) ||
                 other.inputName == inputName) &&
             (identical(other.password, password) ||
-                other.password == password));
+                other.password == password) &&
+            (identical(other.verifyKey, verifyKey) ||
+                other.verifyKey == verifyKey));
   }
 
   @override
@@ -269,8 +304,10 @@ class _$UiStateImpl implements _UiState {
       role,
       sending,
       phone,
+      key,
       inputName,
-      password);
+      password,
+      verifyKey);
 
   @JsonKey(ignore: true)
   @override
@@ -288,8 +325,10 @@ abstract class _UiState implements UiState {
       required final int role,
       required final String sending,
       required final String phone,
+      required final String key,
       required final String inputName,
-      required final String password}) = _$UiStateImpl;
+      required final String password,
+      required final String verifyKey}) = _$UiStateImpl;
 
   @override
   List<Blog>? get blog;
@@ -306,9 +345,13 @@ abstract class _UiState implements UiState {
   @override
   String get phone;
   @override
+  String get key;
+  @override
   String get inputName;
   @override
   String get password;
+  @override
+  String get verifyKey;
   @override
   @JsonKey(ignore: true)
   _$$UiStateImplCopyWith<_$UiStateImpl> get copyWith =>

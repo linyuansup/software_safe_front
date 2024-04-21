@@ -6,7 +6,7 @@ part of 'provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$uiHash() => r'34e51c62b266b9474eefff6e263ccac1a0c90d08';
+String _$uiHash() => r'dad17f1e7a3c821649231188d3284ec0f832e3c7';
 
 /// See also [Ui].
 @ProviderFor(Ui)

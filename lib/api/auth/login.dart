@@ -7,8 +7,10 @@ part 'login.g.dart';
 class LoginVo implements Vo {
   String phone;
   String password;
+  String key;
+  String verify;
 
-  LoginVo({required this.phone, required this.password});
+  LoginVo({required this.phone, required this.password, required this.key, required this.verify});
 
   @override
   factory LoginVo.fromJson(Map<String, dynamic> json) =>
@@ -28,7 +30,11 @@ class LoginDto implements Dto {
   final String username;
   final int userId;
 
-  LoginDto({required this.token, required this.role, required this.username, required this.userId});
+  LoginDto(
+      {required this.token,
+      required this.role,
+      required this.username,
+      required this.userId});
 
   @override
   factory LoginDto.fromJson(Map<String, dynamic> json) =>

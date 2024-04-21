@@ -58,7 +58,7 @@ class HomePage extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: SizedBox(
-                          height: 210,
+                          height: 260,
                           child: Column(
                             children: [
                               const Text('登录'),
@@ -113,6 +113,36 @@ class HomePage extends StatelessWidget {
                                     ),
                                   );
                                 },
+                              ),
+                              SizedBox(
+                                width: 300,
+                                height: 40,
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Consumer(
+                                        builder: (context, ref, child) {
+                                          return TextField(
+                                            decoration: const InputDecoration(
+                                              hintText: '请输入验证码',
+                                            ),
+                                            onChanged: (value) {
+                                              ref
+                                                  .read(uiProvider.notifier)
+                                                  .verifyKey = value;
+                                            },
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                    Consumer(
+                                      builder: (context, ref, child) {
+                                        return Image.network(
+                                            "http://127.0.0.1:8080/auth/verify?key=${ref.watch(uiProvider.select((value) => value.key))}");
+                                      },
+                                    )
+                                  ],
+                                ),
                               ),
                               Consumer(builder: (context, ref, child) {
                                 return TextButton(

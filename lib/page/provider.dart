@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:crypto/crypto.dart';
+import 'package:uuid/uuid.dart';
 
 part 'provider.freezed.dart';
 part 'provider.g.dart';
@@ -24,8 +25,10 @@ class UiState with _$UiState {
     required int role,
     required String sending,
     required String phone,
+    required String key,
     required String inputName,
     required String password,
+    required String verifyKey,
   }) = _UiState;
 }
 
@@ -33,14 +36,16 @@ class UiState with _$UiState {
 class Ui extends _$Ui {
   @override
   UiState build() {
-    return const UiState(
+    return UiState(
       blog: null,
       role: -1,
+      verifyKey: "",
       isRefreshing: true,
       username: null,
       userId: null,
       sending: '',
       inputName: '',
+      key: const Uuid().toString(),
       phone: '',
       password: '',
     );
@@ -60,6 +65,9 @@ class Ui extends _$Ui {
   set phone(String phone) => state = state.copyWith(phone: phone);
   set password(String password) => state = state.copyWith(password: password);
   set sending(String sending) => state = state.copyWith(sending: sending);
+  set key(String key) => state = state.copyWith(key: key);
+  set verifyKey(String verifyKey) =>
+      state = state.copyWith(verifyKey: verifyKey);
   set inputName(String inputName) =>
       state = state.copyWith(inputName: inputName);
 
@@ -68,7 +76,9 @@ class Ui extends _$Ui {
         .post(
             LoginVo(
                 phone: state.phone,
-                password: md5.convert(utf8.encode(state.password)).toString()),
+                password: md5.convert(utf8.encode(state.password)).toString(),
+                key: state.key,
+                verify: state.verifyKey),
             (json) => LoginDto.fromJson(json))
         .then((response) {
       http.token = response.token;
@@ -90,7 +100,9 @@ class Ui extends _$Ui {
             RegisterVo(
                 phone: state.phone,
                 password: state.password,
-                name: state.inputName),
+                name: state.inputName,
+                key: state.key,
+                verify: state.verifyKey),
             (json) => RegisterDto.fromJson(json))
         .then((response) {
       http.token = response.token;
