@@ -45,7 +45,7 @@ class Ui extends _$Ui {
       userId: null,
       sending: '',
       inputName: '',
-      key: const Uuid().toString(),
+      key: const Uuid().v1(),
       phone: '',
       password: '',
     );
